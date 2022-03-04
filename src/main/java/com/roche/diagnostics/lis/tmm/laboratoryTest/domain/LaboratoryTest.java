@@ -1,7 +1,7 @@
-package com.roche.diagnostics.lis.tmm.domain.laboratoryTest;
+package com.roche.diagnostics.lis.tmm.laboratoryTest.domain;
 
 
-import com.roche.diagnostics.lis.tmm.domain.sample.Sample;
+import com.roche.diagnostics.lis.tmm.sample.domain.Sample;
 
 import java.math.BigInteger;
 import java.util.UUID;

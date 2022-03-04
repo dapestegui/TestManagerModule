@@ -1,4 +1,4 @@
-package com.roche.diagnostics.lis.tmm.domain.sample;
+package com.roche.diagnostics.lis.tmm.sample.domain;
 
 import java.math.BigInteger;
 

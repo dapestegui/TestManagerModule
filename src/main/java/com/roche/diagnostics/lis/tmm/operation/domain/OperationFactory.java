@@ -1,6 +1,6 @@
-package com.roche.diagnostics.lis.tmm.domain.operation;
+package com.roche.diagnostics.lis.tmm.operation.domain;
 
-import com.roche.diagnostics.lis.tmm.domain.laboratoryTest.LaboratoryTestNames;
+import com.roche.diagnostics.lis.tmm.laboratoryTest.domain.LaboratoryTestNames;
 
 public class OperationFactory {
 

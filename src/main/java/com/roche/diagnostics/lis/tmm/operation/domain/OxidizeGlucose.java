@@ -1,6 +1,6 @@
-package com.roche.diagnostics.lis.tmm.domain.operation;
+package com.roche.diagnostics.lis.tmm.operation.domain;
 
-import com.roche.diagnostics.lis.tmm.domain.laboratoryTest.LaboratoryTest;
+import com.roche.diagnostics.lis.tmm.laboratoryTest.domain.LaboratoryTest;
 
 public class OxidizeGlucose extends Oxidize{
 	@Override

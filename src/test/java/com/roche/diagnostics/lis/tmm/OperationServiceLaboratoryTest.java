@@ -1,12 +1,12 @@
 package com.roche.diagnostics.lis.tmm;
 
-import com.roche.diagnostics.lis.tmm.application.OperationServiceImpl;
-import com.roche.diagnostics.lis.tmm.domain.laboratoryTest.UreaLaboratoryTest;
-import com.roche.diagnostics.lis.tmm.domain.operation.OperationNames;
-import com.roche.diagnostics.lis.tmm.domain.operation.ports.OperationService;
-import com.roche.diagnostics.lis.tmm.domain.sample.Sample;
-import com.roche.diagnostics.lis.tmm.domain.laboratoryTest.GlucoseLaboratoryTest;
-import com.roche.diagnostics.lis.tmm.domain.laboratoryTest.LaboratoryTest;
+import com.roche.diagnostics.lis.tmm.operation.application.OperationServiceImpl;
+import com.roche.diagnostics.lis.tmm.laboratoryTest.domain.UreaLaboratoryTest;
+import com.roche.diagnostics.lis.tmm.operation.domain.OperationNames;
+import com.roche.diagnostics.lis.tmm.operation.domain.ports.OperationService;
+import com.roche.diagnostics.lis.tmm.sample.domain.Sample;
+import com.roche.diagnostics.lis.tmm.laboratoryTest.domain.GlucoseLaboratoryTest;
+import com.roche.diagnostics.lis.tmm.laboratoryTest.domain.LaboratoryTest;
 import junit.framework.TestCase;
 
 import java.math.BigInteger;

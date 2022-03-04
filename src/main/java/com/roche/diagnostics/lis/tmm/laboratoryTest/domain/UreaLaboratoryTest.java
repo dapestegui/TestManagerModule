@@ -1,4 +1,4 @@
-package com.roche.diagnostics.lis.tmm.domain.laboratoryTest;
+package com.roche.diagnostics.lis.tmm.laboratoryTest.domain;
 
 public class UreaLaboratoryTest extends BiochemistryLaboratoryTest {
 
