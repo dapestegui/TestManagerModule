@@ -1,4 +1,4 @@
-package com.roche.diagnostics.lis.tmm.operation.application;
+package com.roche.diagnostics.lis.tmm.operation.infraestructure;
 
 import com.roche.diagnostics.lis.tmm.operation.domain.Operation;
 import com.roche.diagnostics.lis.tmm.operation.domain.ports.OperationRepository;

@@ -6,6 +6,7 @@ import com.roche.diagnostics.lis.tmm.operation.domain.OperationFactory;
 import com.roche.diagnostics.lis.tmm.operation.domain.OperationNames;
 import com.roche.diagnostics.lis.tmm.operation.domain.ports.OperationRepository;
 import com.roche.diagnostics.lis.tmm.operation.domain.ports.OperationService;
+import com.roche.diagnostics.lis.tmm.operation.infraestructure.OperationRepositoryImpl;
 
 import java.util.UUID;
 
