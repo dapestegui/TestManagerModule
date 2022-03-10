@@ -10,6 +10,7 @@ import com.roche.diagnostics.lis.tmm.laboratoryTest.domain.LaboratoryTest;
 import junit.framework.TestCase;
 
 import java.math.BigInteger;
+import java.util.UUID;
 
 public class OperationServiceLaboratoryTest extends TestCase {
 
@@ -18,12 +19,12 @@ public class OperationServiceLaboratoryTest extends TestCase {
 	public void testHydrolyzeGlucose() {
 		LaboratoryTest test = new GlucoseLaboratoryTest();
 		Sample sample = new Sample(BigInteger.valueOf(98765L));
-		test.setOrderId(BigInteger.valueOf(12345l));
+		test.setOrderId(BigInteger.valueOf(12345L));
 		test.setSample(sample);
 		LaboratoryTest test2 = operationService.applyOperation(test, OperationNames.HYDROLYZE);
 
-		assert(test.getTestId() == test2.getTestId());
-		assert(test.getOrderId() == test2.getOrderId());
+		assert(test.getTestId().equals(test2.getTestId()));
+		assert(test.getOrderId().equals(test2.getOrderId()));
 		assert(test2.getSample().getStatus().equals("Glucose Hydrolyzed"));
 
 	}
@@ -35,8 +36,8 @@ public class OperationServiceLaboratoryTest extends TestCase {
 		test.setSample(sample);
 		LaboratoryTest test2 = operationService.applyOperation(test, OperationNames.OXIDIZE);
 
-		assert(test.getTestId() == test2.getTestId());
-		assert(test.getOrderId() == test2.getOrderId());
+		assert(test.getTestId().equals(test2.getTestId()));
+		assert(test.getOrderId().equals(test2.getOrderId()));
 		assert(test2.getSample().getStatus().equals("Oxidized + Glucose Oxidized"));
 
 	}
@@ -44,12 +45,12 @@ public class OperationServiceLaboratoryTest extends TestCase {
 	public void testHydrolyzeUrea() {
 		LaboratoryTest test = new UreaLaboratoryTest();
 		Sample sample = new Sample(BigInteger.valueOf(95445L));
-		test.setOrderId(BigInteger.valueOf(15655l));
+		test.setOrderId(BigInteger.valueOf(15655L));
 		test.setSample(sample);
 		LaboratoryTest test2 = operationService.applyOperation(test, OperationNames.HYDROLYZE);
 
-		assert(test.getTestId() == test2.getTestId());
-		assert(test.getOrderId() == test2.getOrderId());
+		assert(test.getTestId().equals(test2.getTestId()));
+		assert(test.getOrderId().equals(test2.getOrderId()));
 		assert(test2.getSample().getStatus().equals("Hydrolyzed"));
 
 	}
@@ -61,9 +62,21 @@ public class OperationServiceLaboratoryTest extends TestCase {
 		test.setSample(sample);
 		LaboratoryTest test2 = operationService.applyOperation(test, OperationNames.OXIDIZE);
 
-		assert(test.getTestId() == test2.getTestId());
-		assert(test.getOrderId() == test2.getOrderId());
+		assert(test.getTestId().equals(test2.getTestId()));
+		assert(test.getOrderId().equals(test2.getOrderId()));
 		assert(test2.getSample().getStatus().equals("Oxidized"));
+
+	}
+
+	public void testFailedGetOperationById(){
+		UUID id = UUID.randomUUID();
+		boolean failed = false;
+		try {
+			operationService.getOperationById(id);
+		} catch (Exception e) {
+			failed = true;
+		}
+		assertTrue(failed);
 
 	}
 }
