@@ -4,34 +4,26 @@ import com.roche.diagnostics.lis.tmm.laboratoryTest.domain.LaboratoryTest;
 import com.roche.diagnostics.lis.tmm.operation.domain.Operation;
 import com.roche.diagnostics.lis.tmm.operation.domain.OperationFactory;
 import com.roche.diagnostics.lis.tmm.operation.domain.OperationNames;
+import com.roche.diagnostics.lis.tmm.operation.domain.Oxidize;
 import com.roche.diagnostics.lis.tmm.operation.domain.ports.OperationRepository;
-import com.roche.diagnostics.lis.tmm.operation.domain.ports.OperationService;
+import com.roche.diagnostics.lis.tmm.operation.domain.ports.OperationExecutor;
 import com.roche.diagnostics.lis.tmm.operation.infraestructure.OperationRepositoryImpl;
 
 import java.util.UUID;
 
-public class OperationServiceImpl implements OperationService {
+public class OxidizeGenericService implements OperationExecutor {
 
 	OperationRepository operationRepository= new OperationRepositoryImpl();
 
 	@Override
-	public LaboratoryTest applyOperation(LaboratoryTest laboratoryTest, OperationNames operationName) {
+	public LaboratoryTest applyOperation(LaboratoryTest laboratoryTest) {
 
-		Operation op = OperationFactory.getOperation(laboratoryTest.getTestName(), operationName);
+		Operation op = new Oxidize();
 
 		laboratoryTest = op.execute(laboratoryTest);
 
 		operationRepository.save(op);
 
 		return laboratoryTest;
-	}
-
-	@Override
-	public Operation getOperationById(UUID id) throws Exception {
-		Operation op = operationRepository.getOperationById(id);
-		if(op == null){
-			throw new Exception("No operation with id: "+ id + " was found.");
-		}
-		return op;
 	}
 }
