@@ -38,12 +38,11 @@ Enabling new endpoints with little traffic first and then increasing the load wh
 
 The project is structured following a Domain Driven Desing approach (the top division is each domain) and below each one of them a hexagonal architecture. 
 
-The domain folder has all the core models and the inbound and outbound ports (For simplicity the outbound ports are omitted in this example).
+The domain folder has all the core models and the inbound and outbound ports.
 
-The application folder has the implemented use cases with the business rules.
+The application folder has the implemented use cases with the business rules for the ports.
 
 The infraestructure folder (omitted for simplicity) would have the all the adapters necessary to communicate with the external systems (REST controllers, Databases, etc). 
-
 
 The core entity is Operation, which is an interface (facade) from which all Operations inherit. This enables a uniform behavior thoughout the system.
 
