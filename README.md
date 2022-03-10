@@ -8,7 +8,8 @@ This is a project structured for the Test Manager Module focused on the operatio
 
 # UML Diagram
 
-![TestCase](https://user-images.githubusercontent.com/32935258/157763161-cece6381-b401-4d4f-92bf-df3116dca058.png)
+
+![TestCase2](https://user-images.githubusercontent.com/32935258/157770079-0838c3fa-90df-450d-b326-cf8ec93a3db1.png)
 
 
 # Refactoring strategy
