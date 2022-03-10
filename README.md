@@ -6,28 +6,6 @@ Test Manager Module is in charge of executing Operations on top of Laboratories 
 
 This is a project structured for the Test Manager Module focused on the operations facet. Control  and reporting over the tests and results are not considered on this design. 
 
-# Project structure and design patterns
-
-The project is structured following a Domain Driven Desing approach (the top division is each domain) and below each one of them a hexagonal architecture. 
-
-The domain folder has all the core models and the inbound and outbound ports (For simplicity the outbound ports are omitted in this example).
-
-The application folder has the implemented use cases with the business rules.
-
-The infraestructure folder (omitted for simplicity) would have the all the adapters necessary to communicate with the external systems (REST controllers, Databases, etc). 
-
-
-The core entity is Operation, which is an interface (facade) from which all Operations inherit. This enables a uniform behavior thoughout the system.
-
-LaboratoryTest is an interface with a very basic structure, upon which a few abstract classes were created to group based on a common behavior (i.e. Biochemistry category has a abstract class). 
-
-Finally to get the correct Operation based on the laboratory test type and the operation type we have a factory that will provide us with the correct implementation for such parameters.
-
-
-
-# UML Diagram
-
-TBP
 
 # Refactoring strategy
 
@@ -50,3 +28,25 @@ The big unknown is how expensive in time and effort this middleware application 
 Enabling new endpoints with little traffic first and then increasing the load while making sure the system behaves as expected and the auditing is correct. 
 
 7. **Decomission the old services:** Once the new services have proven to be reliable and correct the old systems can be decomissioned. 
+
+
+# UML Diagram
+
+![TestCase](https://user-images.githubusercontent.com/32935258/157763161-cece6381-b401-4d4f-92bf-df3116dca058.png)
+
+# Project structure and design patterns
+
+The project is structured following a Domain Driven Desing approach (the top division is each domain) and below each one of them a hexagonal architecture. 
+
+The domain folder has all the core models and the inbound and outbound ports (For simplicity the outbound ports are omitted in this example).
+
+The application folder has the implemented use cases with the business rules.
+
+The infraestructure folder (omitted for simplicity) would have the all the adapters necessary to communicate with the external systems (REST controllers, Databases, etc). 
+
+
+The core entity is Operation, which is an interface (facade) from which all Operations inherit. This enables a uniform behavior thoughout the system.
+
+LaboratoryTest is an interface with a very basic structure, upon which a few abstract classes were created to group based on a common behavior (i.e. Biochemistry category has a abstract class). 
+
+Finally to get the correct Operation based on the laboratory test type and the operation type we have a factory that will provide us with the correct implementation for such parameters.
