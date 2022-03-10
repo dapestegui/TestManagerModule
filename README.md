@@ -6,6 +6,10 @@ Test Manager Module is in charge of executing Operations on top of Laboratories 
 
 This is a project structured for the Test Manager Module focused on the operations facet. Control  and reporting over the tests and results are not considered on this design. 
 
+# UML Diagram
+
+![TestCase](https://user-images.githubusercontent.com/32935258/157763161-cece6381-b401-4d4f-92bf-df3116dca058.png)
+
 
 # Refactoring strategy
 
@@ -29,10 +33,6 @@ Enabling new endpoints with little traffic first and then increasing the load wh
 
 7. **Decomission the old services:** Once the new services have proven to be reliable and correct the old systems can be decomissioned. 
 
-
-# UML Diagram
-
-![TestCase](https://user-images.githubusercontent.com/32935258/157763161-cece6381-b401-4d4f-92bf-df3116dca058.png)
 
 # Project structure and design patterns
 
