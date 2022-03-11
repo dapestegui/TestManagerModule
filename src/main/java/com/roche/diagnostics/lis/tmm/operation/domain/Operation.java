@@ -6,9 +6,9 @@ import java.util.Date;
 import java.util.UUID;
 
 
-public interface Operation {
+public interface Operation<T extends LaboratoryTest> {
 
-	LaboratoryTest execute(LaboratoryTest laboratoryTest);
+	T execute(T laboratoryTest);
 
 	Date getStartTime();
 

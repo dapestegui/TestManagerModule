@@ -1,10 +1,12 @@
 package com.roche.diagnostics.lis.tmm.operation.domain;
 
 import com.roche.diagnostics.lis.tmm.laboratoryTest.domain.LaboratoryTest;
+import org.springframework.stereotype.Component;
 
-public class Oxidize extends AbstractOperation {
+@Component
+public class Oxidize<T extends LaboratoryTest> extends AbstractOperation<T> {
 
-	protected LaboratoryTest executeInternal(LaboratoryTest laboratoryTest) {
+	protected T executeInternal(T laboratoryTest) {
 		laboratoryTest.getSample().setStatus("Oxidized");
 		return laboratoryTest;
 	}

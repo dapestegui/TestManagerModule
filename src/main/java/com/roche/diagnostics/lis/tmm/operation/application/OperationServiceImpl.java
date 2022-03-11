@@ -1,34 +1,34 @@
 package com.roche.diagnostics.lis.tmm.operation.application;
 
 import com.roche.diagnostics.lis.tmm.laboratoryTest.domain.LaboratoryTest;
+import com.roche.diagnostics.lis.tmm.operation.domain.Hydrolyze;
 import com.roche.diagnostics.lis.tmm.operation.domain.Operation;
-import com.roche.diagnostics.lis.tmm.operation.domain.OperationFactory;
-import com.roche.diagnostics.lis.tmm.operation.domain.OperationNames;
 import com.roche.diagnostics.lis.tmm.operation.domain.ports.OperationRepository;
 import com.roche.diagnostics.lis.tmm.operation.domain.ports.OperationService;
-import com.roche.diagnostics.lis.tmm.operation.infraestructure.OperationRepositoryImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.UUID;
 
-public class OperationServiceImpl implements OperationService {
+@Service
+public class OperationServiceImpl<T extends LaboratoryTest, J extends Operation<T>> implements OperationService<T, J>{
 
-	OperationRepository operationRepository= new OperationRepositoryImpl();
+	@Autowired
+	OperationRepository operationRepository;
 
 	@Override
-	public LaboratoryTest applyOperation(LaboratoryTest laboratoryTest, OperationNames operationName) {
+	public T applyOperation(T laboratoryTest, J operation) {
 
-		Operation op = OperationFactory.getOperation(laboratoryTest.getTestName(), operationName);
+		laboratoryTest = operation.execute(laboratoryTest);
 
-		laboratoryTest = op.execute(laboratoryTest);
-
-		operationRepository.save(op);
+		operationRepository.save(operation);
 
 		return laboratoryTest;
 	}
 
 	@Override
-	public Operation getOperationById(UUID id) throws Exception {
-		Operation op = operationRepository.getOperationById(id);
+	public J getOperationById(UUID id) throws Exception {
+		J op = (J) operationRepository.getOperationById(id);
 		if(op == null){
 			throw new Exception("No operation with id: "+ id + " was found.");
 		}

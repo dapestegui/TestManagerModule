@@ -1,10 +1,12 @@
 package com.roche.diagnostics.lis.tmm.operation.domain;
 
-import com.roche.diagnostics.lis.tmm.laboratoryTest.domain.LaboratoryTest;
+import com.roche.diagnostics.lis.tmm.laboratoryTest.domain.GlucoseLaboratoryTest;
+import org.springframework.stereotype.Component;
 
-public class HydrolyzeGlucose extends Hydrolyze{
+@Component
+public class HydrolyzeGlucose extends Hydrolyze<GlucoseLaboratoryTest> {
 
-	protected LaboratoryTest executeInternal(LaboratoryTest test) {
+	protected GlucoseLaboratoryTest executeInternal(GlucoseLaboratoryTest test) {
 		test.getSample().setStatus("Glucose Hydrolyzed");
 		return test;
 	}
